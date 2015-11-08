@@ -1,21 +1,19 @@
 <head>
   <title>Todo List</title>
 </head>
- 
+
 <body>
-  <div class="container">
-    <header>
-      <h1>Todo List</h1>
-    </header>
- 
-    <ul>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
-    </ul>
-  </div>
+<div class="container"
+     ng-app="simple-todos"
+     ng-controller="TodosListCtrl">
+
+  <header>
+    <h1>Todo List</h1>
+  </header>
+
+  <ul>
+    <li ng-repeat="task in tasks">{{task.text}}</li>
+  </ul>
+
+</div>
 </body>
- 
-<template name="task">
-  <li>{{text}}</li>
-</template>
