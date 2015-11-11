@@ -8,12 +8,20 @@
      ng-controller="TodosListCtrl">
 
   <header>
-    <h1>Todo List</h1>
-  </header>
+    <h1>Todo List ( {{ incompleteCount() }} )</h1>
 
-  <form class="new-task" ng-submit = "addTask(newTask)">
-    <input ng-model = "newTask" type="text" name = "text" placeholder = "Type to add new tasks" />
-  </form>
+    <label class="hide-completed">
+      <input type="checkbox" ng-model="hideCompleted"/>
+      Hide Completed Tasks
+    </label>
+
+    <!-- add a form below the h1 -->
+    <form class="new-task" ng-submit="addTask(newTask); newTask='';">
+      <input ng-model="newTask" type="text"
+             name="text" placeholder="Type to add new tasks" />
+    </form>
+
+  </header>
 
   <ul>
     <li ng-repeat="task in tasks" ng-class = "{ 'checked': task.checked }">
